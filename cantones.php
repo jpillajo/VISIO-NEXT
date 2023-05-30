@@ -1,5 +1,5 @@
 <?php
-require('C:/xampp/htdocs/MXAC_DASHBOARD/INCLUDES/FUNCIONES/db_conexion.php');
+require('C:/xampp/htdocs/VISIO-NEXT/INCLUDES/FUNCIONES/db_conexion.php');
 $input = $_POST['provincia'];
 $query = "SELECT nombre_provincia, tbl_canton.id_canton AS canton_id, nombre_canton, SUM(sai_total) AS sai
             FROM public.tbl_sai, public.tbl_parroquia,
