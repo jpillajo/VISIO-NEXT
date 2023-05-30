@@ -20,7 +20,6 @@ let respObtenerParroquia;
 let respObtenerParroquiaUoR;
 
 function obtenerMes(id_mes) {
-  console.log(id_mes.options[id_mes.selectedIndex].text);
   respObtenerMes = id_mes.value;
   return respObtenerMes;
 }
@@ -62,7 +61,6 @@ function actualizarGrafico() {
       "rbParroquiasRurales"
     ).value;
   }
-  console.log(selectedValue);
   datos_fe.append("categoria_parroquia", selectedValue);
   datos_fe.append("id_mes", respObtenerMes);
   datos_fe.append("id_anio", respObtenerAnio);

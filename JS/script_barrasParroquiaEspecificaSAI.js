@@ -20,7 +20,6 @@ let respObtenerParroquia;
 let respObtenerParroquiaUoR;
 
 function obtenerMes(id_mes) {
-  console.log(id_mes.options[id_mes.selectedIndex].text);
   respObtenerMes = id_mes.value;
   return respObtenerMes;
 }

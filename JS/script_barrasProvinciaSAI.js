@@ -23,8 +23,6 @@ function obtenerAnio(id_anio) {
 }
 
 function obtenerConsultaProvinciasSAI() {
-  console.log(respObtenerMes);
-  console.log(respObtenerAnio);
   const datos_fe = new FormData();
   datos_fe.append("flag", "barrasProvinciasSAI");
   datos_fe.append("id_mes", respObtenerMes);
