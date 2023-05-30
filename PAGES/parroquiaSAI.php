@@ -7,8 +7,8 @@
   <link rel="icon" type="image/x-icon" href="./IMAGES/favicon.ico">
   <title>VISIO-NEXT</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="stylesheet" href="./CSS/styles.css">
-  <link href="./CSS/dashboard.css" rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/styles.css">
+  <link href="../CSS/dashboard.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
 </head>
 <?php
@@ -29,7 +29,7 @@ require_once('C:/xampp/htdocs/VISIO-NEXT/INCLUDES/FUNCIONES/consultas.php');
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="./index.php">
+              <a class="nav-link" href="../index.php">
                 <span data-feather="map-pin"></span>
                 Provincia
               </a>
@@ -131,6 +131,6 @@ require_once('C:/xampp/htdocs/VISIO-NEXT/INCLUDES/FUNCIONES/consultas.php');
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
-<script src="./JS/script_barrasParroquiaSAI.js" type="text/javascript"></script>
+<script src="../JS/script_barrasParroquiaSAI.js" type="text/javascript"></script>
 
 </html>

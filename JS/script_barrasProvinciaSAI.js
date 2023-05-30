@@ -7,9 +7,11 @@ const consultaMesesSAI = {
   id_mes: [],
   mes: [],
 };
+
 const consultaAniosSAI = {
   anio: [],
 };
+
 let respObtenerMes;
 let respObtenerAnio;
 
@@ -17,6 +19,7 @@ function obtenerMes(id_mes) {
   respObtenerMes = id_mes.value;
   return respObtenerMes;
 }
+
 function obtenerAnio(id_anio) {
   respObtenerAnio = id_anio.value;
   return respObtenerAnio;
@@ -48,7 +51,6 @@ function LoadConsultaProvinciasSAI(datos) {
     provincia: [],
     sum_sai: [],
   };
-  console.table(datos);
   datos.forEach((element) => {
     consultaProvinciasSAI.provincia.push(element.nombre_provincia);
     consultaProvinciasSAI.sum_sai.push(element.sai);
@@ -125,7 +127,6 @@ function obtenerMesSAI() {
 }
 
 function LoadConsultaMesSAI(datos) {
-  console.table(datos);
   datos.forEach((element) => {
     consultaMesesSAI.id_mes.push(element.id_mes);
     consultaMesesSAI.mes.push(element.nombre_mes);
@@ -155,7 +156,6 @@ function obtenerAnioSAI() {
 }
 
 function LoadConsultaAnioSAI(datos) {
-  console.table(datos);
   datos.forEach((element) => {
     consultaAniosSAI.anio.push(element.anio_sai);
   });

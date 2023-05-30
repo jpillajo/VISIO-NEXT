@@ -35,25 +35,25 @@ require_once('C:/xampp/htdocs/VISIO-NEXT/INCLUDES/FUNCIONES/consultas.php');
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./cantonSAI.php">
+              <a class="nav-link" href="./PAGES/cantonSAI.php">
                 <span data-feather="map-pin"></span>
                 Canton
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./parroquiaSAI.php">
+              <a class="nav-link" href="./PAGES/parroquiaSAI.php">
                 <span data-feather="map-pin"></span>
                 Parroquia
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./parroquiaEspecificaSAI.php">
+              <a class="nav-link" href="./PAGES/parroquiaEspecificaSAI.php">
                 <span data-feather="map-pin"></span>
                 Parroquia Específica
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./estadisticaSMA.php">
+              <a class="nav-link" href="./PAGES/estadisticaSMA.php">
                 <span data-feather="bar-chart-2"></span>
                 SMA
               </a>

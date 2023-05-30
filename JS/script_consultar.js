@@ -8,7 +8,7 @@ $(document).ready(function () {
 function recargarCantones() {
   $.ajax({
     type: "POST",
-    url: "cantones.php",
+    url: "../cantones.php",
     data: "provincia=" + $("#lblProvincias").val(),
     success: function (r) {
       $("#lblCantones").html(r);
@@ -19,7 +19,7 @@ function recargarCantones() {
 function recargarParroquias() {
   $.ajax({
     type: "POST",
-    url: "parroquias.php",
+    url: "../parroquias.php",
     data: "canton=" + $("#lblCantones").val(),
     success: function (r) {
       $("#lblParroquias").html(r);

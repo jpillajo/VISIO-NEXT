@@ -38,7 +38,7 @@ function actualizarGrafico() {
   datos_fe.append("id_mes", respObtenerMes);
   datos_fe.append("id_anio", respObtenerAnio);
 
-  xhr.open("POST", "INCLUDES/FUNCIONES/logica_data.php", true);
+  xhr.open("POST", "../INCLUDES/FUNCIONES/logica_data.php", true);
   xhr.onload = function () {
     if (this.status == 200) {
       LoadConsultaCantonesSAI(JSON.parse(xhr.responseText));
@@ -59,7 +59,6 @@ function LoadConsultaCantonesSAI(datos) {
     canton: [],
     sum_sai: [],
   };
-  console.table(datos);
   datos.forEach((element) => {
     consultaCantonesSAI.provincia.push(element.nombre_provincia);
     consultaCantonesSAI.canton.push(element.nombre_canton);
@@ -136,7 +135,7 @@ function LoadConsultaCantonesSAI(datos) {
 
 /* CARGAR MESES EN SELECT */
 function obtenerMesSAI() {
-  xhr1.open("POST", "INCLUDES/FUNCIONES/logica_data.php", true);
+  xhr1.open("POST", "../INCLUDES/FUNCIONES/logica_data.php", true);
   xhr1.onload = function () {
     if (this.status == 200) {
       LoadConsultaMesSAI(JSON.parse(xhr1.responseText)); //capturo los datos del back-end para el front-end
@@ -148,7 +147,6 @@ function obtenerMesSAI() {
 }
 
 function LoadConsultaMesSAI(datos) {
-  console.table(datos);
   datos.forEach((element) => {
     consultaMesesSAI.id_mes.push(element.id_mes);
     consultaMesesSAI.mes.push(element.nombre_mes);
@@ -166,7 +164,7 @@ function cargarMeses() {
 
 /* CARGAR AÑOS EN SELECT */
 function obtenerAnioSAI() {
-  xhr2.open("POST", "INCLUDES/FUNCIONES/logica_data.php", true);
+  xhr2.open("POST", "../INCLUDES/FUNCIONES/logica_data.php", true);
   xhr2.onload = function () {
     if (this.status == 200) {
       LoadConsultaAnioSAI(JSON.parse(xhr2.responseText)); //capturo los datos del back-end para el front-end
@@ -178,7 +176,6 @@ function obtenerAnioSAI() {
 }
 
 function LoadConsultaAnioSAI(datos) {
-  console.table(datos);
   datos.forEach((element) => {
     consultaAniosSAI.anio.push(element.anio_sai);
   });
@@ -203,7 +200,7 @@ $(document).ready(function () {
 function recargarProvincias() {
   $.ajax({
     type: "POST",
-    url: "provincias.php",
+    url: "../provincias.php",
     data:
       "provincia=" +
       "SELECT tbl_provincia.id_provincia AS provincia_id, nombre_provincia, SUM(sai_total) AS sai FROM public.tbl_sai, public.tbl_parroquia, public.tbl_canton, public.tbl_provincia WHERE tbl_parroquia.id_parroquia = tbl_sai.id_parroquia AND tbl_canton.id_canton = tbl_parroquia.id_canton AND tbl_provincia.id_provincia = tbl_canton.id_provincia GROUP BY provincia_id, nombre_provincia ORDER BY provincia_id, nombre_provincia ASC;",

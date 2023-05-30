@@ -3,7 +3,7 @@ let xhr = new XMLHttpRequest();
 
 //FUNCIONES
 function actualizarGrafico() {
-  xhr.open("POST", "INCLUDES/FUNCIONES/logica_data.php", true);
+  xhr.open("POST", "../INCLUDES/FUNCIONES/logica_data.php", true);
   xhr.onload = function () {
     if (this.status == 200) {
       LoadConsultaParroquiasSMA(JSON.parse(xhr.responseText));
@@ -19,7 +19,6 @@ function LoadConsultaParroquiasSMA(datos) {
     con_sma: [],
     sin_sma: [],
   };
-  console.table(datos);
   datos.forEach((element) => {
     consultaParroquiasSMA.con_sma.push(element.sin_sma);
     consultaParroquiasSMA.sin_sma.push(element.con_sma);
@@ -86,7 +85,7 @@ $(document).ready(function () {
 function recargarProvincias() {
   $.ajax({
     type: "POST",
-    url: "provincias.php",
+    url: "../provincias.php",
     success: function (r) {
       $("#lblProvincias").html(r);
     },

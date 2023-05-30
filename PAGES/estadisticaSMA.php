@@ -7,8 +7,8 @@
   <link rel="icon" type="image/x-icon" href="./IMAGES/favicon.ico">
   <title>VISIO-NEXT</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link rel="stylesheet" href="./CSS/styles.css">
-  <link href="./CSS/dashboard.css" rel="stylesheet">
+  <link href="../CSS/dashboard.css" rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/styles.css">
   <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
 </head>
 <?php
@@ -29,7 +29,7 @@ require_once('C:/xampp/htdocs/VISIO-NEXT/INCLUDES/FUNCIONES/consultas.php');
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="./index.php">
+              <a class="nav-link" href="../index.php">
                 <span data-feather="map-pin"></span>
                 Provincia
               </a>
@@ -47,62 +47,50 @@ require_once('C:/xampp/htdocs/VISIO-NEXT/INCLUDES/FUNCIONES/consultas.php');
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="./parroquiaEspecificaSAI.php">
+              <a class="nav-link" href="./parroquiaEspecificaSAI.php">
                 <span data-feather="map-pin"></span>
                 Parroquia Específica
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./estadisticaSMA.php">
+              <a class="nav-link active" href="./estadisticaSMA.php">
                 <span data-feather="bar-chart-2"></span>
                 SMA
               </a>
             </li>
-          </ul>
+          </ul>s
         </div>
       </nav>
 
       <main class="col-md-10 ms-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">Dashboard</h1>
-          <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="row m-auto">
-              <div class="col">
-                <label for="lblProvincias" class="form-label">Elegir la provincia:</label>
-                <select class="form-select" id="lblProvincias" onchange="obtenerProvincia(this)">
-                  <option disabled selected hidden>Ej. Pichincha</option>
-                </select>
-              </div>
-              <div class="col">
-                <label for="lblCantones" class="form-label">Elegir el cantón:</label>
-                <select class="form-select" id="lblCantones" onchange="obtenerCantones(this)">
-                  <option disabled selected hidden>Ej. Quito</option>
-                </select>
-              </div>
-              <div class="col">
-                <label for="lblParroquias" class="form-label">Elegir la parroquia:</label>
-                <select class="form-select" id="lblParroquias" onchange="obtenerParroquia(this)">
-                  <option disabled selected hidden>Ej. Tumbaco</option>
-                </select>
-              </div>
-              <div class="col">
-                <label for="lblYear" class="form-label">Seleccione el año:</label>
-                <select class="form-select" id="lblAnio" onchange="obtenerAnio(this)">
-                </select>
-              </div>
-              <div class="col position-relative">
-                <div class="position-absolute top-50 start-50 translate-middle">
-                  <button type="submit" class="btn btn-primary" onclick="actualizarGrafico()">Consultar</button>
-                </div>
-              </div>
-            </div>
+          <h1 class="h2">SERVICIO MÓVIL AVANZADO</h1>
+        </div>
+      </main>
+
+      <main class="col-md-10 ms-sm-auto col-lg-4 px-md-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+          <div class="btn-toolbar mb-2 mb-md-0 mx-auto">
+            <label for="lblProvincias" class="form-label">Elegir la provincia:</label>
+            <select class="form-select" id="lblProvincias" onchange="actualizarGrafico(this)">
+              <option disabled selected hidden>Ej. Pichincha</option>
+            </select>
           </div>
         </div>
 
-        <div id="contenedorChart">
-          <canvas class="my-4 w-100" id="myChart" width="900" height="300"></canvas>
+        <div id="contenedorChart" class="mh-100 mx-auto" style="width: 500px; height: 500px;">
+          <canvas class="my-4 w-100" id="myChart"></canvas>
         </div>
 
+      </main>
+      <main class="col-md-10 ms-sm-auto col-lg-4 px-md-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+          <div class="btn-toolbar mb-2 mb-md-0 mx-auto">
+            <div id="contenedorChart2" class="mh-100" style="width: 500px; height: 500px;">
+              <canvas class="my-4 w-100" id="myChart2"></canvas>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   </div>
@@ -120,6 +108,6 @@ require_once('C:/xampp/htdocs/VISIO-NEXT/INCLUDES/FUNCIONES/consultas.php');
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
-<script src="./JS/script_barrasParroquiaEspecificaSAI.js" type="text/javascript"></script>
+<script src="../JS/script_estadisticaSMA.js" type="text/javascript"></script>
 
 </html>

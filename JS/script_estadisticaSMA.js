@@ -7,7 +7,7 @@ function actualizarGrafico(id_provincia) {
   datos_fe.append("flag", "doughnutProvinciasSMA");
   datos_fe.append("id_provincia", id_provincia.value);
 
-  xhr.open("POST", "INCLUDES/FUNCIONES/logica_data.php", true);
+  xhr.open("POST", "../INCLUDES/FUNCIONES/logica_data.php", true);
   xhr.onload = function () {
     if (this.status == 200) {
       LoadConsultaProvinciasSMA(JSON.parse(xhr.responseText));
@@ -28,7 +28,6 @@ function LoadConsultaProvinciasSMA(datos) {
     c_2g_3g: [],
     c_4g: [],
   };
-  console.table(datos);
   datos.forEach((element) => {
     consultaProvinciasSMA.provincia.push(element.nombre_provincia);
     consultaProvinciasSMA.c_2g_3g.push(element.cobertura_2g_3g);
@@ -97,7 +96,7 @@ function LoadConsultaProvinciasSMA(datos) {
 }
 
 function obtenerConsultaParroquiasSMA() {
-  xhr.open("POST", "INCLUDES/FUNCIONES/logica_data.php", true);
+  xhr.open("POST", "../INCLUDES/FUNCIONES/logica_data.php", true);
   xhr.onload = function () {
     if (this.status == 200) {
       LoadConsultaParroquiasSMA(JSON.parse(xhr.responseText));
@@ -113,7 +112,6 @@ function LoadConsultaParroquiasSMA(datos) {
     con_sma: [],
     sin_sma: [],
   };
-  console.table(datos);
   datos.forEach((element) => {
     consultaParroquiasSMA.con_sma.push(element.sin_sma);
     consultaParroquiasSMA.sin_sma.push(element.con_sma);
@@ -183,7 +181,7 @@ $(document).ready(function () {
 function recargarProvincias() {
   $.ajax({
     type: "POST",
-    url: "provincias.php",
+    url: "../provincias.php",
     data:
       "provincia=" +
       "SELECT tbl_provincia.id_provincia AS provincia_id, nombre_provincia, ROUND(cobertura_2g_3g::numeric*100, 2) AS cobertura_2g_3g, ROUND(cobertura_4g::numeric*100, 2) AS cobertura_4g FROM tbl_sma_porcentaje, tbl_provincia WHERE tbl_provincia.id_provincia = tbl_sma_porcentaje.id_provincia;",

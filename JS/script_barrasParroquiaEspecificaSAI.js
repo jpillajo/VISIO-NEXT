@@ -52,7 +52,7 @@ function actualizarGrafico() {
   datos_fe.append("id_parroquia", respObtenerParroquia);
   datos_fe.append("id_anio", respObtenerAnio);
 
-  xhr.open("POST", "INCLUDES/FUNCIONES/logica_data.php", true);
+  xhr.open("POST", "../INCLUDES/FUNCIONES/logica_data.php", true);
   xhr.onload = function () {
     if (this.status == 200) {
       LoadConsultaParroquiasSAI(JSON.parse(xhr.responseText));
@@ -76,7 +76,6 @@ function LoadConsultaParroquiasSAI(datos) {
     mes_sai: [],
     sum_sai: [],
   };
-  console.table(datos);
   datos.forEach((element) => {
     consultaParroquiasSAI.provincia.push(element.nombre_provincia);
     consultaParroquiasSAI.canton.push(element.nombre_canton);
@@ -90,7 +89,6 @@ function LoadConsultaParroquiasSAI(datos) {
     consultaParroquiasSAI.mes_sai.push(element.nombre_mes);
     consultaParroquiasSAI.sum_sai.push(element.sai);
   });
-  console.table(consultaParroquiasSAI);
   const data = {
     labels: consultaParroquiasSAI.mes_sai,
     datasets: [
@@ -100,14 +98,10 @@ function LoadConsultaParroquiasSAI(datos) {
         backgroundColor: ["rgb(0,128,255)"],
         borderColor: [
           "rgb(54, 162, 235)",
-          //'rgb(88,130,250)'
         ],
         borderWidth: 1,
         datalabels: {
           color: "black",
-          // formatter: function (value) {
-          //     return value + ' habitantes';
-          // },
           font: {
             weight: "bold",
             size: 12,
@@ -181,7 +175,7 @@ function LoadConsultaParroquiasSAI(datos) {
 
 /* CARGAR AÑOS EN SELECT */
 function obtenerAnioSAI() {
-  xhr2.open("POST", "INCLUDES/FUNCIONES/logica_data.php", true);
+  xhr2.open("POST", "../INCLUDES/FUNCIONES/logica_data.php", true);
   xhr2.onload = function () {
     if (this.status == 200) {
       LoadConsultaAnioSAI(JSON.parse(xhr2.responseText)); //capturo los datos del back-end para el front-end
@@ -226,7 +220,7 @@ $(document).ready(function () {
 function recargarProvincias() {
   $.ajax({
     type: "POST",
-    url: "provincias.php",
+    url: "../provincias.php",
     data:
       "provincia=" +
       "SELECT tbl_provincia.id_provincia AS provincia_id, nombre_provincia, SUM(sai_total) AS sai FROM public.tbl_sai, public.tbl_parroquia, public.tbl_canton, public.tbl_provincia WHERE tbl_parroquia.id_parroquia = tbl_sai.id_parroquia AND tbl_canton.id_canton = tbl_parroquia.id_canton AND tbl_provincia.id_provincia = tbl_canton.id_provincia GROUP BY provincia_id, nombre_provincia ORDER BY provincia_id, nombre_provincia ASC;",
@@ -239,7 +233,7 @@ function recargarProvincias() {
 function recargarCantones() {
   $.ajax({
     type: "POST",
-    url: "cantones.php",
+    url: "../cantones.php",
     data: "provincia=" + $("#lblProvincias").val(),
     success: function (r) {
       $("#lblCantones").html(r);
@@ -250,7 +244,7 @@ function recargarCantones() {
 function recargarParroquias() {
   $.ajax({
     type: "POST",
-    url: "parroquias.php",
+    url: "../parroquias.php",
     data: "canton=" + $("#lblCantones").val(),
     success: function (r) {
       $("#lblParroquias").html(r);
